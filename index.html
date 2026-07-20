@@ -324,8 +324,11 @@
                     </div>
                     <div class="stat-row">
                         <span class="stat-label">Athlete Email</span>
-                        <span class="stat-value" style="direction: rtl; unicode-bidi: bidi-override;">
-                            ten.siturb&#64;tloc
+                        <span class="stat-value">
+                            <a href="#" id="athlete-email" style="color: var(--accent-color); text-decoration: none;">
+                            [Hover or Click to Reveal Email]
+                            </a>
+                        </span>
                     </div>
                     <div class="stat-row">
                         <span class="stat-label">Athlete Phone</span>
@@ -347,4 +350,26 @@
     </div>
 
 </body>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // We break your email into pieces so bots searching for text patterns find nothing
+        var user = "colt";
+        var domain = "brutis.net";
+        var fullEmail = user + "@" + domain;
+        
+        var emailLink = document.getElementById("athlete-email");
+        
+        // When a human moves their mouse over it or taps it on a phone:
+        function revealEmail() {
+            emailLink.innerText = fullEmail;
+            emailLink.href = "mailto:" + fullEmail;
+        }
+        
+        emailLink.addEventListener("mouseover", revealEmail);
+        emailLink.addEventListener("focus", revealEmail);
+        emailLink.addEventListener("click", function(e) {
+            revealEmail(); // Ensures it works if they click right away
+        });
+    });
+</script>
 </html>
