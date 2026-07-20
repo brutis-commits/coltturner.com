@@ -6,10 +6,13 @@
     <title>Recruitment Profile | Men's Track & Field</title>
     <style>
         :root {
-            --primary-color: #111827; /* Dark slate */
-            --accent-color: #2563eb;  /* Athletic blue */
-            --bg-color: #f9fafb;      /* Clean off-white */
-            --text-color: #374151;    /* Charcoal text */
+            --bg-color: #0b0f19;       /* Deep matte black/navy */
+            --card-bg: #151b2c;        /* Dark slate card color */
+            --accent-color: #3b82f6;   /* Performance blue */
+            --accent-glow: #2563eb;    /* Deeper blue for hover glows */
+            --text-main: #f9fafb;      /* Crisp white */
+            --text-muted: #9ca3af;     /* Soft gray for labels */
+            --stat-highlight: #60a5fa; /* Vibrant blue for numbers */
         }
 
         * {
@@ -17,66 +20,95 @@
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding: 2rem 1rem;
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 3rem 1.5rem;
         }
 
         .container {
-            max-width: 680px;
+            max-width: 640px;
             margin: 0 auto;
         }
 
-        /* Header / Profile Section */
+        /* PROFILE HEADER */
         header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .profile-badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 1rem;
         }
 
         h1 {
-            color: var(--primary-color);
-            font-size: 2.25rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+            background: linear-gradient(to bottom right, #ffffff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
+        .meta-info {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
-        .stats-badge {
-            background-color: #e5e7eb;
-            color: var(--primary-color);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
+        /* SECTION STYLING */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
             font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        /* Video Section */
-        .video-container {
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, rgba(156, 163, 175, 0.2), transparent);
+        }
+
+        /* PREMIUM VIDEO CONTAINER */
+        .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%; /* 16:9 ratio */
             height: 0;
+            border-radius: 16px;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            margin-bottom: 2.5rem;
             background: #000;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        .video-container iframe {
+        .video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -85,92 +117,108 @@
             border: 0;
         }
 
-        /* Section Headings */
-        h2 {
-            font-size: 1.25rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 0.25rem;
+        /* ATHLETIC STATS GRID */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
         }
 
-        /* Links / Buttons */
-        .links-section {
-            margin-bottom: 2.5rem;
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stat-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 14px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .stat-row:first-child {
+            padding-top: 0;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .stat-value {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .stat-value.highlight {
+            color: var(--stat-highlight);
+            font-size: 1.1rem;
+        }
+
+        /* LINKS / BUTTONS SECTION */
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
         .btn {
             display: flex;
             align-items: center;
-            justify-content: center;
-            background-color: #ffffff;
-            color: var(--primary-color);
+            justify-content: space-between;
+            background-color: var(--card-bg);
+            color: var(--text-main);
             text-decoration: none;
-            padding: 1rem;
-            margin-bottom: 0.75rem;
-            border-radius: 8px;
-            border: 1px solid #e5e7eb;
+            padding: 1.1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
             font-weight: 600;
-            transition: all 0.2s ease;
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            font-size: 0.95rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .btn:hover {
+            background-color: rgba(5b, 130, 246, 0.08);
             border-color: var(--accent-color);
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .btn::after {
+            content: '→';
+            font-weight: 400;
             color: var(--accent-color);
-            transform: translateY(-1px);
+            transition: transform 0.2s ease;
         }
 
-        /* Grid for Stats/Contact */
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
+        .btn:hover::after {
+            transform: translateX(4px);
         }
 
-        @media (max-width: 480px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .card {
-            background: #ffffff;
-            padding: 1.25rem;
-            border-radius: 8px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .card ul {
-            list-style: none;
-        }
-
-        .card li {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .card li strong {
-            color: var(--primary-color);
-        }
-
-        .card a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        .card a:hover {
-            text-decoration: underline;
-        }
-
+        /* FOOTER */
         footer {
             text-align: center;
-            font-size: 0.85rem;
-            color: #9ca3af;
-            margin-top: 4rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 5rem;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -178,66 +226,98 @@
 
     <div class="container">
 
-        <!-- HEADER section -->
+        <!-- HEADER SECTION -->
         <header>
+            <div class="profile-badge">Class of 2027 • Recruitment Profile</div>
             <h1>Your Name Here</h1>
-            <div class="subtitle">Track & Field Recruitment Profile</div>
-            <div class="stats-badge">Class of 2028 • Sprinter / Hurdler</div>
+            <div class="meta-info">Sprinter / Hurdler • City High School (State)</div>
         </header>
 
-        <!-- VIDEO section (YouTube/Vimeo Highlight Reel) -->
+        <!-- VIDEO SECTION -->
         <section>
-            <h2>Highlight Reel</h2>
-            <div class="video-container">
+            <h2>Featured Highlight Reel</h2>
+            <div class="video-wrapper">
                 <!-- Replace the URL below with your actual YouTube embed link -->
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
             </div>
         </section>
 
-        <!-- STATS & CONTACT grid -->
-        <div class="grid">
-            <!-- Personal Stats -->
-            <div class="card">
-                <h2>Personal PRs</h2>
-                <ul>
-                    <li><strong>100m:</strong> 10.85s</li>
-                    <li><strong>200m:</strong> 21.90s</li>
-                    <li><strong>GPA:</strong> 3.7 </li>
-                    <li><strong>High School:</strong> Wilson Central High School (Lebanon, TN)</li>
-                </ul>
+        <!-- STATS GRID -->
+        <section class="stats-grid">
+            <!-- Academic & NCAA Card -->
+            <div class="stat-card">
+                <h2>Academic & NCAA</h2>
+                <div class="stat-row">
+                    <span class="stat-label">NCAA ID</span>
+                    <span class="stat-value">#1234567890</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Core GPA</span>
+                    <span class="stat-value">3.85 / 4.0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">SAT / ACT</span>
+                    <span class="stat-value">1320 / 28</span>
+                </div>
             </div>
 
-            <!-- Contact Methods -->
-            <div class="card">
-                <h2>Contact Info</h2>
-                <ul>
-                    <li><strong>Email:</strong> <a href="mailto:your.email@gmail.com">your.email@gmail.com</a></li>
-                    <li><strong>Phone:</strong> (555) 123-4567</li>
-                    <li><strong>NCAA ID:</strong> #1234567890</li>
-                    <li><strong>Coach:</strong> John Doe (555-000-0000)</li>
-                </ul>
+            <!-- Athletic PRs Card -->
+            <div class="stat-card">
+                <h2>Personal Bests</h2>
+                <div class="stat-row">
+                    <span class="stat-label">100m</span>
+                    <span class="stat-value highlight">10.82s</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">200m</span>
+                    <span class="stat-value highlight">21.95s</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">400m</span>
+                    <span class="stat-value">49.10s</span>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- LINKS section -->
-        <section class="links-section">
-            <h2>Important Links</h2>
-            
-            <a href="https://www.athletic.net" target="_blank" class="btn">
-                📊 View My Athletic.net Profile
-            </a>
-            
-            <a href="https://www.ncaa.org/sports/recruiting" target="_blank" class="btn">
-                📜 NCAA Eligibility Center Profile
-            </a>
-            
-            <a href="#" target="_blank" class="btn">
-                📄 Download Full Academic Transcript (PDF)
-            </a>
+        <!-- CONTACT METHODS -->
+        <section>
+            <h2>Contact Information</h2>
+            <div class="stats-grid">
+                <div class="stat-card" style="grid-column: 1 / -1;">
+                    <div class="stat-row">
+                        <span class="stat-label">Athlete Email</span>
+                        <span class="stat-value"><a href="mailto:your.email@gmail.com" style="color: var(--accent-color); text-decoration: none;">your.email@gmail.com</a></span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Athlete Phone</span>
+                        <span class="stat-value">(555) 123-4567</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Head Coach Info</span>
+                        <span class="stat-value">John Doe • (555) 000-0000</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LINKS & PROFILES -->
+        <section>
+            <h2>Verified Portals</h2>
+            <div class="links-list">
+                <a href="https://www.athletic.net" target="_blank" class="btn">
+                    View Verified Athletic.net Stats
+                </a>
+                <a href="https://www.ncaa.org/sports/recruiting" target="_blank" class="btn">
+                    NCAA Eligibility Center Profile
+                </a>
+                <a href="#" target="_blank" class="btn">
+                    Download Academic Transcript (PDF)
+                </a>
+            </div>
         </section>
 
         <footer>
-            &copy; 2026 Your Name. All rights reserved.
+            &copy; 2026 Your Name. All rights reserved. Managed via GitHub Pages.
         </footer>
 
     </div>
