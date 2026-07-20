@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment Profile | Men's Track & Field</title>
+    <style>
+        :root {
+            --primary-color: #111827; /* Dark slate */
+            --accent-color: #2563eb;  /* Athletic blue */
+            --bg-color: #f9fafb;      /* Clean off-white */
+            --text-color: #374151;    /* Charcoal text */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Header / Profile Section */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.25rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-badge {
+            background-color: #e5e7eb;
+            color: var(--primary-color);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Video Section */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2.5rem;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Section Headings */
+        h2 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.25rem;
+        }
+
+        /* Links / Buttons */
+        .links-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-1px);
+        }
+
+        /* Grid for Stats/Contact */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .card li strong {
+            color: var(--primary-color);
+        }
+
+        .card a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- HEADER section -->
+        <header>
+            <h1>Your Name Here</h1>
+            <div class="subtitle">Track & Field Recruitment Profile</div>
+            <div class="stats-badge">Class of 2027 • Sprinter / Hurdler</div>
+        </header>
+
+        <!-- VIDEO section (YouTube/Vimeo Highlight Reel) -->
+        <section>
+            <h2>Highlight Reel</h2>
+            <div class="video-container">
+                <!-- Replace the URL below with your actual YouTube embed link -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- STATS & CONTACT grid -->
+        <div class="grid">
+            <!-- Personal Stats -->
+            <div class="card">
+                <h2>Personal PRs</h2>
+                <ul>
+                    <li><strong>100m:</strong> 10.82s</li>
+                    <li><strong>200m:</strong> 21.95s</li>
+                    <li><strong>GPA:</strong> 3.8 / ACT: 28</li>
+                    <li><strong>High School:</strong> City High School (State)</li>
+                </ul>
+            </div>
+
+            <!-- Contact Methods -->
+            <div class="card">
+                <h2>Contact Info</h2>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:your.email@gmail.com">your.email@gmail.com</a></li>
+                    <li><strong>Phone:</strong> (555) 123-4567</li>
+                    <li><strong>NCAA ID:</strong> #1234567890</li>
+                    <li><strong>Coach:</strong> John Doe (555-000-0000)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- LINKS section -->
+        <section class="links-section">
+            <h2>Important Links</h2>
+            
+            <a href="https://www.athletic.net" target="_blank" class="btn">
+                📊 View My Athletic.net Profile
+            </a>
+            
+            <a href="https://www.ncaa.org/sports/recruiting" target="_blank" class="btn">
+                📜 NCAA Eligibility Center Profile
+            </a>
+            
+            <a href="#" target="_blank" class="btn">
+                📄 Download Full Academic Transcript (PDF)
+            </a>
+        </section>
+
+        <footer>
+            &copy; 2026 Your Name. All rights reserved.
+        </footer>
+
+    </div>
+
+</body>
+</html>
